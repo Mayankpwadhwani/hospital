@@ -1,0 +1,20 @@
+<mat-grid-list cols="3" class="doc">
+    @for (item of trainedInData; track item.trainedInId) {
+<mat-grid-tile>
+<mat-card class="card">
+<mat-card-header>
+<mat-card-title>{{ item.physcianName }}</mat-card-title>
+<mat-card-subtitle>Physician ID: {{ item.physicianId }}</mat-card-subtitle>
+</mat-card-header>
+<mat-card-content>
+<p>Training ID: {{ item.trainedInId }}</p>
+<p>Certification Date: {{ item.certificationDate | date:'mediumDate' }}</p>
+<p><strong>Treatment:</strong> {{ item.treatment.name }}</p>
+<p>Cost:{{ item.treatment.cost | currency:'INR' }}</p>    
+<button mat-raised-button>Book Appointment</button>
+</mat-card-content>
+</mat-card>
+</mat-grid-tile>
+    }
+</mat-grid-list>
+ 
