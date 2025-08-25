@@ -10,11 +10,12 @@
 <p>Training ID: {{ item.trainedInId }}</p>
 <p>Certification Date: {{ item.certificationDate | date:'mediumDate' }}</p>
 <p><strong>Treatment:</strong> {{ item.treatment.name }}</p>
-<p>Cost:{{ item.treatment.cost | currency:'INR' }}</p>    
-<button mat-raised-button>Book Appointment</button>
+<p>Cost:{{ item.treatment.cost | currency:'INR' }}</p>   
+<button routerLink="/details" mat-raised-button>View More</button>
+
 </mat-card-content>
 </mat-card>
 </mat-grid-tile>
     }
 </mat-grid-list>
- 
+ <router-outlet></router-outlet>

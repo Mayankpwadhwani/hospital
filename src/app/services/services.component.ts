@@ -29,13 +29,22 @@ ngOnInit(){
     })
   this.service.getTreatment().subscribe((data1)=>{
     this.treatment=data1
-  })  
-   this.service.getMedicine().subscribe((data2)=>{
+  }) 
+  this.service.getMedicine().subscribe((data2)=>{
     this.medicine=data2
-  })  
-
-
-
+  })
+}
+deleteMedicine(){
+  if(confirm("delete")){
+    this.service.removeMedicine().subscribe({
+      next:()=>{
+        alert('removed successfully');
+      }
+    })
+  }
+}
 }
 
-}
+ 
+
+
