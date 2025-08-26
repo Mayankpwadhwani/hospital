@@ -19,14 +19,14 @@ export class DetailsComponent implements OnInit {
 constructor(private service:DoctorService,private route:ActivatedRoute){ }
 
   ngOnInit(){
-     this.service.getdetails().subscribe((data:Appointment[])=>{
+    //  this.service.getdetails().subscribe((data:Appointment[])=>{
+    //   this.detail=data;
+    // });
+    const physicianId=Number(this.route.snapshot.paramMap.get('id'));
+    this.service.getdetails().subscribe((data:Appointment[])=>{
       this.detail=data;
-    });
-    // const physicianId = Number(this.route.snapshot.paramMap.get('id'));
-  //   console.log(physicianId);
-  //  this.filteredDetails = this.detail.filter(
-  //    d => d.physicianId === physicianId
-  //  );
-  //  console.log("Filtered",this.filteredDetails);
+      this.filteredDetails=this.detail.filter(d=>d.physicianId===physicianId)
+      
+    })
   }
 }

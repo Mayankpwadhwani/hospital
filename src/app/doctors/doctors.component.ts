@@ -21,6 +21,7 @@ constructor(private service:DoctorService , private router : Router){}
 ngOnInit(){
   this.service.getTrainedIn().subscribe((data)=>{
     this.trainedInData=data
+
     
     })
 }
