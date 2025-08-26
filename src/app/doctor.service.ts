@@ -6,6 +6,7 @@ import { Medicine } from './models/medicine';
 import { Room } from './models/rooms';
 import { Treatment } from './models/trainedin';
 import { Appointment } from './models/appointment';
+import { Delete } from './models/Delete';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +55,13 @@ export class DoctorService {
       Authorization:`Bearer ${this.token}`
     })
     return this.http.get<Appointment[]>(`${this.baseUrl}/api/hospital/appointment`,{headers})
+  }
+  deleteDetail(data:Appointment):Observable<void>{
+    const url=`${this.baseUrl}/api/hospital/appointment`+
+    `appointmentId=${data.appointmentId}`+
+    ``
+
+    return this.http.delete<void>(url);
 
   }
   

@@ -1,4 +1,4 @@
-@for (item of  detail ; track item.appointmentId) {
+@for (item of  filteredDetails ; track item.appointmentId) {
 <mat-card class="card">
 <mat-card-header>
 <mat-card-title>Appointment No.{{ item.appointmentId }}</mat-card-title>
@@ -9,6 +9,8 @@
 <p>Patient Name: {{ item.patient.name}} ID:{{ item.patient.patientId }}</p>
 <p>Assigned Nurse: {{item.prepNurse.nurse.name}}</p>
 <p>Nurse Position: {{item.prepNurse.nurse.position}}</p>
+<button mat-raised-button>Create</button>
+<button mat-raised-button>Delete</button>
 </mat-card-content>
 </mat-card>
 }
